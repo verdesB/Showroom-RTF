@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import {DeviceOrientationControls} from "three-stdlib";
+import {DeviceOrientationControlsProps} from "@react-three/drei";
 
-interface props {
+interface DeviceOrientationControlsProps {
     permissionGranted: boolean;
+    // autres props...
 }
 
-const DeviceOrientationControlsCustom = ({ permissionGranted }: props) => {
+const DeviceOrientationControlsCustom: React.FC<DeviceOrientationControlsProps> = ({ permissionGranted }) => {
     const { camera, gl } = useThree();
     const controlsRef = useRef<DeviceOrientationControls | null>(null);
 
