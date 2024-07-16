@@ -59,7 +59,7 @@ export default function Home() {
   return (
       <main className="main">
         {isMobile ? (
-            <button className="pageSection__buttonCloseMobile">
+            <button className="pageSection__buttonCloseMobile" onClick={handleClick}>
               <X />
             </button>
         ) : (
@@ -89,9 +89,9 @@ export default function Home() {
           </div>
         </section>
         {isMobile ? (
-            <SceneBottomMobile />
+            <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked } helpersDesktop={helpersDesktop}/>
         ) : (
-            <SceneBottomDesktop helpersDesktop={helpersDesktop} isClicked={isClicked} />
+            <SceneBottomDesktop helpersDesktop={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
         )}
       </main>
   );

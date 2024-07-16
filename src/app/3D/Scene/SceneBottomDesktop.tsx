@@ -9,15 +9,18 @@ import { Model } from "@/app/3D/OBJs/ModelsInit";
 import { PointerLockControls } from "@react-three/drei";
 import {CameraAndControls} from "@/app/3D/Controls/CameraAndControls";
 import {WestLight2} from "@/app/3D/Lights/WestLight2";
+import {Painting} from "@/app/3D/OBJs/Paintings/PaintingsInit";
 
 interface SceneBottomDesktopProps {
     helpersDesktop: JSX.Element;
     isClicked: boolean;
+    selectedGallery?: unknown
 }
 
-export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersDesktop, isClicked }) => {
+export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersDesktop, isClicked, selectedGallery }) => {
     const [controlsLocked, setControlsLocked] = useState(false);
     const models = OBJs;
+
     console.log('scene desktop');
     const handleSceneClick = () => {
         if (isClicked) {
@@ -30,9 +33,9 @@ export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersD
 
     return (
         <div style={{ width: '100%', height: '100%' }} onClick={handleSceneClick}>
-            <Canvas shadows={true} color='#ffffff' style={{pointerEvents: 'none'}} camera={{ fov: 60, position: [15.3, 4, -48],  }} >
-                <Suspense fallback={null}>
-                    <AmbientLight />
+            <Canvas shadows={true} color='#ffffff' style={{pointerEvents: 'none'}} camera={{ fov: 60, position: [15.3, 4, -48], antialias: true  }} >
+                <Suspense fallback={"loading"}>
+                <AmbientLight />
                     <EastLight />
                     <WestLight />
                     <WestLight2 />
@@ -40,6 +43,10 @@ export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersD
                     {models.map((model) => (
                         <Model key={model.id} {...model} />
                     ))}
+                    {selectedGallery && selectedGallery.paintings.map((painting) => (
+                        <Painting key={painting.id} painting={painting} />
+                    ))}
+
                     {isClicked && <CameraAndControls isClicked={isClicked} controlsLocked={controlsLocked}/> }
                 </Suspense>
             </Canvas>
