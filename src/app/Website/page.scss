@@ -1,0 +1,254 @@
+@use './mixin.scss';
+@keyframes scaleAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+@include mixin.phone {
+  .main {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  .pageSection{
+    width: 100%;
+    height: 150vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.5s;
+    background-color: rgba(255,255,255,0.32);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+    z-index: 2;
+    box-sizing: border-box;
+
+
+    &__title {
+      color: gray;
+      font-size: 2rem;
+      font-family: CooperHewitt, sans-serif;
+      font-weight: 700;
+      width: 100%;
+      text-align: start;
+
+    }
+    &__buttonCloseMobile {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+    }
+    &__iconClose {
+      color: gray;
+    }
+    &__helperKeyboard {
+      position: absolute;
+      bottom: 10px;
+      right: 100px;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__helperMouse {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__helpersMobileKeyboard {
+      position: absolute;
+      top: 10px;
+      right: 84px;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__helpersMobileOrientation {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__helpersEscape {
+      position: absolute;
+      top: 10px;
+      //right: 158px;
+      left: 10px;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      animation: scaleAnimation 2s infinite;
+    }
+  }
+}
+
+
+
+@include mixin.desktop {
+  .pageSection{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: transform 0.5s;
+    background-color: rgba(255,255,255,0.32);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    overflow: hidden;
+
+    &__title {
+      color: gray;
+      font-size: 4rem;
+      font-family: CooperHewitt, sans-serif;
+      font-weight: 700;
+      width: 100%;
+      text-align: start;height: 5rem;
+    }
+    &__buttonClose {
+      display: flex;
+      height:  8rem;
+      width: 18rem;
+      position: absolute;
+      top: 10px;
+      //left: 51%;
+      right: 10px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(255,255,255,0.32);
+      z-index: 4;
+      color: gray;
+      font-size: 3rem;
+      font-family: CooperHewitt, sans-serif;
+      font-weight: 800;
+      border: #b6b6b6 1px solid;
+      transition: transform 0.3s ease-in-out;
+
+
+    }
+    &__buttonClose.clicked {
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.1s 0.3s;
+    }
+
+
+    &__iconClose {
+      color: gray;
+      width: 3rem;
+      height: 3rem;
+
+
+    }
+
+    &__helperKeyboard {
+      position: absolute;
+      bottom: 10px;
+      right: 100px;
+
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__helperMouse {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__helpersMobileKeyboard {
+      position: absolute;
+      top: 10px;
+      right: 84px;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    &__helpersMobileOrientation {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: rgba(255,255,255,0.32);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
