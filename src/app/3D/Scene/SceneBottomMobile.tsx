@@ -35,7 +35,7 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMo
             setControlsLocked(true);
         }
     };
-    const handleMove = (direction: string) => {
+    const handleMove = (direction: string | null) => {
         moveDirectionRef.current = direction;
     };
     const adjustCameraDirection = (camera: PerspectiveCamera) => {
