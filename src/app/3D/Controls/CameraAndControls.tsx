@@ -3,8 +3,11 @@ import {useEffect, useRef} from "react";
 import {PointerLockControls} from "@react-three/drei";
 import {Vector3, Box3} from "three";
 import {createControlsOptions} from "@/app/3D/Controls/ControlsOptions";
-
-export const CameraAndControls = ({isClicked , controlsLocked}) => {
+interface ControlProps {
+    isClicked: boolean;
+    controlsLocked: boolean;
+}
+export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) => {
     const { camera, gl } = useThree();
     const controlsRef = useRef<PointerLockControls>(null);
 

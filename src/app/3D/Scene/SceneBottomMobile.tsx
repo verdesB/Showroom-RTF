@@ -12,7 +12,7 @@ import {CameraAndControls} from "@/app/3D/Controls/CameraAndControls";
 import {requestGyroscopePermission} from "@/app/3D/Controls/RequestGyroscopePermission";
 import {MoveDown, MoveLeft, MoveRight, MoveUp} from "lucide-react";
 import {PerspectiveCamera, Vector3} from "three";
-import CameraMovementControls, {CameraAndControlsMobile} from "@/app/3D/Controls/CameraAndControlsMobile";
+import CameraMovementControls from "@/app/3D/Controls/CameraAndControlsMobile";
 import DeviceOrientationControls from "@/app/3D/Controls/DeviceOrientationControls";
 
 
