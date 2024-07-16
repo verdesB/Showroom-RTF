@@ -44,7 +44,7 @@ export const DeviceOrientationControlsCustom: React.FC<DeviceOrientationControls
         };
     }, []);
 
-    return ;
+    return <DeviceOrientationControls  />;
 };
 
 export default DeviceOrientationControls;
