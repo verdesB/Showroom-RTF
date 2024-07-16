@@ -57,7 +57,7 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,helpers} : SceneB
             {helpers}
             {!permissionGranted && (
                 <button onClick={() => requestGyroscopePermission(setPermissionGranted)}
-                        style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, fontWeight: 'bold', fontFamily: 'CooperHewitt, sans-serif', fontSize: '3rem' ,color: 'white', background: 'rgba(140,140,140,0.62)', padding: '2rem', borderRadius: '5px', backdropFilter: 'blur(15px)'}} onClick={handleSceneClick}>
+                        style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, fontWeight: 'bold', fontFamily: 'CooperHewitt, sans-serif', fontSize: '3rem' ,color: 'white', background: 'rgba(140,140,140,0.62)', padding: '2rem', borderRadius: '5px', backdropFilter: 'blur(15px)'}} >
 
                    ACTIVE TON GYROSCOPE
                 </button>
