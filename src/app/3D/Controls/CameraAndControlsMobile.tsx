@@ -1,8 +1,10 @@
 import { useFrame, useThree } from '@react-three/fiber';
 import { useRef } from 'react';
 import * as THREE from 'three';
-
-const CameraMovementControls = ({ moveDirectionRef }) => {
+interface Props {
+  moveDirectionRef:  React.RefObject<string | null>;
+}
+const CameraMovementControls = ({ moveDirectionRef }:Props) => {
     const { camera } = useThree();
     const speed = 5;
     const prevTime = useRef(performance.now());

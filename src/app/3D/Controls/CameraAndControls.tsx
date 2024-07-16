@@ -9,7 +9,7 @@ interface ControlProps {
 }
 export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) => {
     const { camera, gl } = useThree();
-    const controlsRef = useRef<PointerLockControls>(null);
+    const controlsRef = useRef<InstanceType<typeof PointerLockControls> | null>(null);
 
     const prevTimeRef = useRef(performance.now());
     const lastValidPosition = useRef(new Vector3());

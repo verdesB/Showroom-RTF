@@ -2,8 +2,11 @@ import { useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import {DeviceOrientationControls} from "three-stdlib";
 
+interface DeviceOrientationControls {
+    permissionGranted: boolean;
+}
 
-const DeviceOrientationControlsCustom = ({ permissionGranted }) => {
+const DeviceOrientationControlsCustom = ({ permissionGranted }: DeviceOrientationControls) => {
     const { camera, gl } = useThree();
     const controlsRef = useRef<DeviceOrientationControls | null>(null);
 
