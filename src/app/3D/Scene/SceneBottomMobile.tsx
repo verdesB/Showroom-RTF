@@ -15,6 +15,8 @@ import {PerspectiveCamera, Vector3} from "three";
 import CameraMovementControls from "@/app/3D/Controls/CameraAndControlsMobile";
 import DeviceOrientationControls, {DeviceOrientationControlsCustom} from "@/app/3D/Controls/DeviceOrientationControls";
 import {Gallery} from "@/app/3D/OBJs/Paintings/paintingsData";
+import CameraMovementControlsMobile from "@/app/3D/Controls/CameraAndControlsMobile";
+import UnifiedCameraControls from "@/app/3D/Controls/UnifiedCameraControls";
 
 //@ts-nocheck
 interface SceneBottomMobileProps {
@@ -60,8 +62,7 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMo
             <Canvas gl={{ antialias: true }} shadows={false} color='#ffffff' style={{pointerEvents: 'none'}}
                     camera={{fov: 60, position: [15.3, 4, -48]}}>
                 <Suspense fallback={"loading"}>
-                    <CameraMovementControls moveDirectionRef={moveDirectionRef}/>
-                    <DeviceOrientationControlsCustom permissionGranted={permissionGranted}/>
+                    <UnifiedCameraControls permissionGranted={permissionGranted} moveDirectionRef={moveDirectionRef} />
                     <AmbientLight/>
                     <EastLight/>
                     <WestLight/>

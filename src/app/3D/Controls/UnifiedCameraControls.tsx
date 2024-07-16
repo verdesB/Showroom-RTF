@@ -1,14 +1,42 @@
+import { useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { useRef } from 'react';
+import { DeviceOrientationControls } from 'three-stdlib';
 import * as THREE from 'three';
-interface Props {
-  moveDirectionRef:  React.RefObject<string | null>;
+
+interface UnifiedCameraControlsProps {
+    permissionGranted: boolean;
+    moveDirectionRef: React.RefObject<string | null>;
 }
-const CameraMovementControlsMobile = ({ moveDirectionRef }:Props) => {
-    const { camera } = useThree();
-    const speed = 5;
+
+const UnifiedCameraControls = ({ permissionGranted, moveDirectionRef }: UnifiedCameraControlsProps) => {
+    const { camera, gl } = useThree();
+    const controlsRef = useRef<DeviceOrientationControls | null>(null);
     const prevTime = useRef(performance.now());
     const velocity = useRef(new THREE.Vector3());
+    const speed = 5;
+
+    useEffect(() => {
+        if (permissionGranted) {
+            controlsRef.current = new DeviceOrientationControls(camera);
+            if (controlsRef.current instanceof DeviceOrientationControls) {
+                controlsRef.current.connect();
+            }
+        } else {
+            controlsRef.current?.dispose();
+            controlsRef.current = null;
+        }
+        return () => {
+            controlsRef.current?.dispose();
+        };
+    }, [permissionGranted, camera]);
+
+    useEffect(() => {
+        const handleResize = () => controlsRef.current?.update();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useFrame(() => {
         const delta = (performance.now() - prevTime.current) / 1000;
@@ -48,4 +76,4 @@ const CameraMovementControlsMobile = ({ moveDirectionRef }:Props) => {
     return null;
 };
 
-export default CameraMovementControlsMobile;
+export default UnifiedCameraControls;
