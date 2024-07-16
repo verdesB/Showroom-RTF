@@ -51,6 +51,11 @@
       z-index: 4;
 
     }
+    &__buttonCloseMobile.clicked {
+      transform: scale(0);
+      opacity: 0;
+      transition: transform 0.3s ease-in-out, opacity 0.1s 0.3s;
+    }
     &__iconClose {
       color: gray;
     }

@@ -75,7 +75,7 @@ export default function Home() {
   return (
       <main className="main">
         {isMobile ? (
-            <button className="pageSection__buttonCloseMobile" onClick={handleClick}>
+            <button className={`pageSection__buttonCloseMobile  ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
               <X />
             </button>
         ) : (
