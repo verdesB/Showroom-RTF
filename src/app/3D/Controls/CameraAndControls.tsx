@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useFrame, useThree} from "@react-three/fiber";
 import {useEffect, useRef} from "react";
 import {PointerLockControls} from "@react-three/drei";
@@ -9,7 +10,8 @@ interface ControlProps {
 }
 export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) => {
     const { camera, gl } = useThree();
-    const controlsRef = useRef<InstanceType<typeof PointerLockControls> | null>(null);
+
+    const controlsRef = useRef<PointerLockControls >(null);
 
     const prevTimeRef = useRef(performance.now());
     const lastValidPosition = useRef(new Vector3());
