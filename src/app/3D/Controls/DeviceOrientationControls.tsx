@@ -8,7 +8,7 @@ interface DeviceOrientationControlsProps {
     // autres props...
 }
 
-const DeviceOrientationControlsCustom: React.FC<DeviceOrientationControlsProps> = ({ permissionGranted }) => {
+export const DeviceOrientationControlsCustom: React.FC<DeviceOrientationControlsProps> = ({ permissionGranted }) => {
     const { camera, gl } = useThree();
     const controlsRef = useRef<DeviceOrientationControls | null>(null);
 
@@ -44,7 +44,7 @@ const DeviceOrientationControlsCustom: React.FC<DeviceOrientationControlsProps> 
         };
     }, []);
 
-    return null;
+    return ;
 };
 
 export default DeviceOrientationControls;

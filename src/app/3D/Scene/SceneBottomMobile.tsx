@@ -13,7 +13,7 @@ import {requestGyroscopePermission} from "@/app/3D/Controls/RequestGyroscopePerm
 import {MoveDown, MoveLeft, MoveRight, MoveUp} from "lucide-react";
 import {PerspectiveCamera, Vector3} from "three";
 import CameraMovementControls from "@/app/3D/Controls/CameraAndControlsMobile";
-import DeviceOrientationControls from "@/app/3D/Controls/DeviceOrientationControls";
+import DeviceOrientationControls, {DeviceOrientationControlsCustom} from "@/app/3D/Controls/DeviceOrientationControls";
 import {Gallery} from "@/app/3D/OBJs/Paintings/paintingsData";
 
 //@ts-nocheck
@@ -61,7 +61,7 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMo
                     camera={{fov: 60, position: [15.3, 4, -48]}}>
                 <Suspense fallback={"loading"}>
                     <CameraMovementControls moveDirectionRef={moveDirectionRef}/>
-                    <DeviceOrientationControls permissionGranted={permissionGranted}/>
+                    <DeviceOrientationControlsCustom permissionGranted={permissionGranted}/>
                     <AmbientLight/>
                     <EastLight/>
                     <WestLight/>
