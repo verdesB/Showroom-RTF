@@ -14,12 +14,13 @@ import {MoveDown, MoveLeft, MoveRight, MoveUp} from "lucide-react";
 import {PerspectiveCamera, Vector3} from "three";
 import CameraMovementControls from "@/app/3D/Controls/CameraAndControlsMobile";
 import DeviceOrientationControls from "@/app/3D/Controls/DeviceOrientationControls";
+import {Gallery} from "@/app/3D/OBJs/Paintings/paintingsData";
 
 //@ts-nocheck
 interface SceneBottomMobileProps {
     helpersDesktop: JSX.Element;
     isClicked: boolean;
-    selectedGallery?: unknown
+    selectedGallery?: Gallery
 }
 
 export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMobileProps) => {

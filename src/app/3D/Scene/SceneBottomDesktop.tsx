@@ -10,11 +10,12 @@ import { PointerLockControls } from "@react-three/drei";
 import {CameraAndControls} from "@/app/3D/Controls/CameraAndControls";
 import {WestLight2} from "@/app/3D/Lights/WestLight2";
 import {Painting} from "@/app/3D/OBJs/Paintings/PaintingsInit";
+import {Gallery} from "@/app/3D/OBJs/Paintings/paintingsData";
 //@ts-nocheck
 interface SceneBottomDesktopProps {
     helpersDesktop: JSX.Element;
     isClicked: boolean;
-    selectedGallery?: unknown
+    selectedGallery?: Gallery
 }
 
 export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersDesktop, isClicked, selectedGallery }) => {
