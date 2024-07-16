@@ -2,20 +2,22 @@ import { useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import {DeviceOrientationControls} from "three-stdlib";
 
-interface DeviceOrientationControls {
+interface props {
     permissionGranted: boolean;
 }
 
-const DeviceOrientationControlsCustom = ({ permissionGranted }: DeviceOrientationControls) => {
+const DeviceOrientationControlsCustom = ({ permissionGranted }: props) => {
     const { camera, gl } = useThree();
     const controlsRef = useRef<DeviceOrientationControls | null>(null);
 
     useEffect(() => {
         if (permissionGranted) {
             controlsRef.current = new DeviceOrientationControls(camera);
+
             if (controlsRef.current instanceof DeviceOrientationControls) {
                 controlsRef.current.connect();
             }
+
         } else {
             if (controlsRef.current) {
                 if (controlsRef.current instanceof DeviceOrientationControls) {
