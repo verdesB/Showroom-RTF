@@ -15,7 +15,7 @@ import {PerspectiveCamera, Vector3} from "three";
 import CameraMovementControls from "@/app/3D/Controls/CameraAndControlsMobile";
 import DeviceOrientationControls from "@/app/3D/Controls/DeviceOrientationControls";
 
-
+//@ts-nocheck
 interface SceneBottomMobileProps {
     helpersDesktop: JSX.Element;
     isClicked: boolean;

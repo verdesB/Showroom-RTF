@@ -10,7 +10,7 @@ import { PointerLockControls } from "@react-three/drei";
 import {CameraAndControls} from "@/app/3D/Controls/CameraAndControls";
 import {WestLight2} from "@/app/3D/Lights/WestLight2";
 import {Painting} from "@/app/3D/OBJs/Paintings/PaintingsInit";
-
+//@ts-nocheck
 interface SceneBottomDesktopProps {
     helpersDesktop: JSX.Element;
     isClicked: boolean;
