@@ -17,7 +17,9 @@ const UnifiedCameraControls = ({ permissionGranted, moveDirectionRef }: UnifiedC
 
     useEffect(() => {
         if (permissionGranted) {
-            controlsRef.current = new DeviceOrientationControls(camera);
+            if (!controlsRef.current) {
+                controlsRef.current = new DeviceOrientationControls(camera);
+            }
             if (controlsRef.current instanceof DeviceOrientationControls) {
                 controlsRef.current.connect();
             }
@@ -39,6 +41,12 @@ const UnifiedCameraControls = ({ permissionGranted, moveDirectionRef }: UnifiedC
     }, []);
 
     useFrame(() => {
+        if (controlsRef.current) {
+            if (controlsRef.current instanceof DeviceOrientationControls) {
+                controlsRef.current.update();
+            }
+        }
+
         const delta = (performance.now() - prevTime.current) / 1000;
         prevTime.current = performance.now();
 
