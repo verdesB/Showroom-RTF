@@ -21,6 +21,8 @@ export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersD
     const [controlsLocked, setControlsLocked] = useState(false);
     const models = OBJs;
 
+
+
     console.log('scene desktop');
     const handleSceneClick = () => {
         if (isClicked) {
@@ -33,7 +35,7 @@ export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersD
 
     return (
         <div style={{ width: '100%', height: '100%' }} onClick={handleSceneClick}>
-            <Canvas shadows={true} color='#ffffff' style={{pointerEvents: 'none'}} camera={{ fov: 60, position: [15.3, 4, -48], antialias: true  }} >
+            <Canvas antialias shadows={true} color='#ffffff' style={{pointerEvents: 'none'}} camera={{ fov: 60, position: [15.3, 4, -48]  }} >
                 <Suspense fallback={"loading"}>
                 <AmbientLight />
                     <EastLight />

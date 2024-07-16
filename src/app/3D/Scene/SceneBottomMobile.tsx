@@ -56,8 +56,8 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMo
                     Enable Gyroscope
                 </button>
             )}
-            <Canvas shadows={true} color='#ffffff' style={{pointerEvents: 'none'}}
-                    camera={{fov: 60, position: [15.3, 4, -48], antialias: true}}>
+            <Canvas antialias shadows={true} color='#ffffff' style={{pointerEvents: 'none'}}
+                    camera={{fov: 60, position: [15.3, 4, -48]}}>
                 <Suspense fallback={"loading"}>
                     <CameraMovementControls moveDirectionRef={moveDirectionRef}/>
                     <DeviceOrientationControls permissionGranted={permissionGranted}/>
