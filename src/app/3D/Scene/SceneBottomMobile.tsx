@@ -20,12 +20,13 @@ import UnifiedCameraControls from "@/app/3D/Controls/UnifiedCameraControls";
 
 //@ts-nocheck
 interface SceneBottomMobileProps {
-    helpersDesktop: JSX.Element;
+    helpers: JSX.Element;
     isClicked: boolean;
     selectedGallery?: Gallery
+
 }
 
-export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMobileProps) => {
+export const SceneBottomMobile = ({isClicked, selectedGallery ,helpers} : SceneBottomMobileProps) => {
     const [controlsLocked, setControlsLocked] = useState(false);
     const [permissionGranted, setPermissionGranted] = useState(false);
     const moveDirectionRef = useRef<string | null>(null);
@@ -53,6 +54,7 @@ export const SceneBottomMobile = ({isClicked, selectedGallery ,} : SceneBottomMo
 
     return (
         <div style={{position: 'relative', width: '100%', height: '100%'}} onClick={handleSceneClick}>
+            {helpers}
             {!permissionGranted && (
                 <button onClick={() => requestGyroscopePermission(setPermissionGranted)}
                         style={{position: 'absolute', top: '10px', left: '10px', zIndex: 1}}>

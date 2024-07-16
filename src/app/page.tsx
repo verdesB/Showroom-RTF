@@ -22,6 +22,22 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [selectedGallery, setSelectedGallery] = useState<Gallery>(galleries[1]);
 
+   const helpersMobile = (
+      <>
+
+        <div className="pageSection__helpersMobileKeyboard ">
+          <img src="./keyboard.png" alt="Keyboard" style={{width: '2rem', height: '2rem'}}/>
+        </div>
+        <div className="pageSection__helpersMobileOrientation">
+          <Rotate3D style={{color: '#9a9a9a', width: "2rem", height: '2rem'}}/>
+        </div>
+        <button onTouchStart={() => setIsClicked(false)} style={{zIndex: '1'}} className="pageSection__helpersEscape">
+          <SquareArrowOutUpLeft  style={{color: '#9a9a9a', width: "2rem", height: '2rem'}}/>
+        </button>
+
+      </>
+  )
+
   const handleGalleryChange = (selectedGalleryId: any) => {
     const newSelectedGallery = galleries.find(gallery => gallery.id === selectedGalleryId);
     if (newSelectedGallery) {
@@ -89,9 +105,9 @@ export default function Home() {
           </div>
         </section>
         {isMobile ? (
-            <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked } helpersDesktop={helpersDesktop}/>
+            <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked } helpers={helpersMobile}/>
         ) : (
-            <SceneBottomDesktop helpersDesktop={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
+            <SceneBottomDesktop helpers={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
         )}
       </main>
   );

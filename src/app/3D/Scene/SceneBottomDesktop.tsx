@@ -13,12 +13,12 @@ import {Painting} from "@/app/3D/OBJs/Paintings/PaintingsInit";
 import {Gallery} from "@/app/3D/OBJs/Paintings/paintingsData";
 //@ts-nocheck
 interface SceneBottomDesktopProps {
-    helpersDesktop: JSX.Element;
+    helpers: JSX.Element;
     isClicked: boolean;
     selectedGallery?: Gallery
 }
 
-export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersDesktop, isClicked, selectedGallery }) => {
+export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpers, isClicked, selectedGallery }) => {
     const [controlsLocked, setControlsLocked] = useState(false);
     const models = OBJs;
 
@@ -35,7 +35,8 @@ export const SceneBottomDesktop: React.FC<SceneBottomDesktopProps> = ({ helpersD
 
 
     return (
-        <div style={{ width: '100%', height: '100%' }} onClick={handleSceneClick}>
+        <div style={{ width: '100%', height: '100%', position: 'relative' }} onClick={handleSceneClick}>
+            {helpers}
             <Canvas gl={{ antialias: true }} shadows={true} color='#ffffff' style={{pointerEvents: 'none'}} camera={{ fov: 60, position: [15.3, 4, -48]  }} >
                 <Suspense fallback={"loading"}>
                 <AmbientLight />

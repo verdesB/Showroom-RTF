@@ -67,6 +67,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      z-index: 1;
     }
     &__helperMouse {
       position: absolute;
@@ -81,6 +82,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      z-index: 1;
     }
 
     &__helpersMobileKeyboard {
@@ -96,6 +98,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      z-index: 1;
     }
     &__helpersMobileOrientation {
       position: absolute;
@@ -110,6 +113,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      z-index: 1;
     }
     &__helpersEscape {
       position: absolute;
@@ -126,6 +130,7 @@
       align-items: center;
       justify-content: center;
       animation: scaleAnimation 2s infinite;
+      z-index: 1;
     }
   }
 }
