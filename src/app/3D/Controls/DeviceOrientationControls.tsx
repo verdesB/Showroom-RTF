@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import {DeviceOrientationControls} from "three-stdlib";
-import {DeviceOrientationControlsProps} from "@react-three/drei";
+
 
 interface DeviceOrientationControlsProps {
     permissionGranted: boolean;
