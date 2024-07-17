@@ -13,6 +13,7 @@ import { SceneBottomMobile } from '@/app/3D/Scene/SceneBottomMobile';
 import { helpersDesktop } from '@/app/Website/components/helpers/helpersDesktop';
 import { extend } from '@react-three/fiber';
 import { Mesh, MeshPhongMaterial, PlaneGeometry } from 'three';
+import Image from 'next/image'
 
 // Extend Three.js objects with react-three-fiber
 extend({ Mesh, MeshPhongMaterial, PlaneGeometry });
@@ -26,7 +27,7 @@ export default function Home() {
       <>
 
         <div className="pageSection__helpersMobileKeyboard ">
-          <img src="./keyboard.png" alt="Keyboard" style={{width: '2rem', height: '2rem'}}/>
+            <Image src="/keyboard.png" alt="Keyboard" width={20} height={20} style={{width: '2rem', height: '2rem'}}></Image>
         </div>
         <div className="pageSection__helpersMobileOrientation">
           <Rotate3D style={{color: '#9a9a9a', width: "2rem", height: '2rem'}}/>
@@ -75,27 +76,16 @@ export default function Home() {
   return (
       <main className="main">
         {isMobile ? (
-            <button className={`pageSection__buttonCloseMobile  ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-              <X />
-            </button>
+            <button className={`pageSection__buttonCloseMobile  ${isClicked ? 'clicked' : ''}`} onClick={handleClick}><X /></button>
         ) : (
             <Button onClick={handleClick} className={`pageSection__buttonClose ${isClicked ? 'clicked' : ''}`}>
-              <div style={{ height: '100%', width: '80%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                VISITER
-              </div>
-              <div style={{ height: '100%', width: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <CornerRightDown className="pageSection__iconClose" />
-              </div>
+              <div className="pageSection__buttonCloseBox1">VISITER</div>
+              <div className="pageSection__buttonCloseBox2"><CornerRightDown className="pageSection__iconClose" /></div>
             </Button>
         )}
-        <section
-            className="pageSection"
-            style={{
-              transform: isClicked ? 'translateX(-100%)' : 'translateX(0)',
-            }}
-        >
+        <section className="pageSection" style={{transform: isClicked ? 'translateX(-100%)' : 'translateX(0)'}}>
           <MainTitle />
-          <div className="h-[50%] md:h-full  [perspective:1000px] relative b flex flex-col  mx-auto w-full  items-start justify-start mt-2">
+          <div className="pageSection__containerTabs">
             <Tabs
                 tabs={tabs({ onGalleryChange: handleGalleryChange })}
                 galleries={galleries}

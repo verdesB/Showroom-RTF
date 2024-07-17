@@ -1,9 +1,11 @@
-// Mixin pour les téléphones mobiles
 @mixin phone {
   @media (min-width: 350px) { @content; }
 }
 @mixin tablet {
   @media (min-width:600px)   { @content; }
+}
+@mixin mediumTablet {
+  @media (min-width:768px)   { @content; }
 }
 // Mixin pour les tablettes
 @mixin largeTablet {
@@ -13,4 +15,7 @@
 // Mixin pour les ordinateurs de bureau
 @mixin desktop {
   @media (min-width: 1201px) { @content; }
+}
+@mixin desktopLarge {
+  @media (min-width: 1700px) { @content; }
 }

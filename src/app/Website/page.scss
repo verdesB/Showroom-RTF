@@ -59,6 +59,20 @@
     &__iconClose {
       color: gray;
     }
+
+    &__containerTabs {
+      height: 50%;
+      perspective: 1000px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
     &__helperKeyboard {
       position: absolute;
       bottom: 10px;
@@ -139,12 +153,18 @@
     }
   }
 }
-
+@include mixin.mediumTablet {
+  .pageSection {
+    &__containerTabs {
+      height: 100%;
+    }
+  }
+}
 
 
 @include mixin.desktop {
   .pageSection{
-    width: 50%;
+    width: 60%;
     height: 100%;
     position: absolute;
     left: 0;
@@ -193,6 +213,21 @@
       transition: transform 0.3s ease-in-out, opacity 0.1s 0.3s;
     }
 
+    &__buttonCloseBox1 {
+      height: 100%;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    &__buttonCloseBox2 {
+      height: 100%;
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     &__iconClose {
       color: gray;
@@ -262,4 +297,8 @@
     }
   }
 }
-
+@include mixin.desktopLarge {
+  .pageSection {
+    width: 35%;
+  }
+}
