@@ -14,6 +14,7 @@ import { helpersDesktop } from '@/app/Website/components/helpers/helpersDesktop'
 import { extend } from '@react-three/fiber';
 import { Mesh, MeshPhongMaterial, PlaneGeometry } from 'three';
 import Image from 'next/image'
+import SceneTopDesktop from "@/app/3D/Scene/SceneTopDesktop";
 
 // Extend Three.js objects with react-three-fiber
 extend({ Mesh, MeshPhongMaterial, PlaneGeometry });
@@ -97,7 +98,7 @@ export default function Home() {
         {isMobile ? (
             <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked } helpers={helpersMobile}/>
         ) : (
-            <SceneBottomDesktop helpers={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
+            <SceneTopDesktop helpers={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
         )}
       </main>
   );

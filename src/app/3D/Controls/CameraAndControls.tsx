@@ -28,7 +28,7 @@ export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) =>
 
     const boundaryBox = new Box3(
         new Vector3(-floorWidth / 2 - floorMargin, 0, -floorDepth / 2 - floorMargin),
-        new Vector3(floorWidth / 2 + floorMargin, 10, floorDepth / 2 + floorMargin)
+        new Vector3(floorWidth / 2 + floorMargin, 20, floorDepth / 2 + floorMargin)
     );
 
     function isInsideBoundary(position) {
