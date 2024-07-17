@@ -4,8 +4,11 @@ import {galleries} from "@/app/3D/OBJs/Paintings/paintingsData";
 import {Button} from "@/app/Website/components/ui/Button";
 import {SquareArrowUpRight} from "lucide-react";
 import Image from "next/legacy/image";
+interface GalleriesSectionProps {
+    onGalleryChange: (id: number) => void;
+}
 
-const GalleriesSection = ({onGalleryChange}: any) => {
+const GalleriesSection = ({onGalleryChange}: GalleriesSectionProps) => {
     console.log()
     return (
         <div className="galleriesSection">
