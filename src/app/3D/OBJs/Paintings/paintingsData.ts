@@ -170,7 +170,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/woman.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -331,7 +331,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/got.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -492,7 +492,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/knight.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -653,7 +653,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/LOR2.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -814,7 +814,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/wolf.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -975,7 +975,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/marin.jpg",
                 positionX: 18,
                 positionY: 6,
@@ -1136,7 +1136,7 @@ export const galleries: Gallery[] = [
                 rotationX: 90,
             },
             {
-                id: 12,
+                id: 14,
                 url: "./paintings/malinois.jpg",
                 positionX: 18,
                 positionY: 6,
