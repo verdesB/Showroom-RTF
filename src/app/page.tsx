@@ -1,6 +1,6 @@
 'use client'
 import './Website/page.scss';
-import { useEffect, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { CornerRightDown, Rotate3D, SquareArrowOutUpLeft, X } from 'lucide-react';
 import MainTitle from '@/app/Website/components/server/MainTitle';
 import { checkIfMobile } from '@/app/Website/components/hooks/useCheckIfMobile';
@@ -15,6 +15,7 @@ import { extend } from '@react-three/fiber';
 import { Mesh, MeshPhongMaterial, PlaneGeometry } from 'three';
 import Image from 'next/image'
 import SceneTopDesktop from "@/app/3D/Scene/SceneTopDesktop";
+import {SceneDesktopHybrid} from "@/app/3D/Scene/SceneDesktopHybrid";
 
 // Extend Three.js objects with react-three-fiber
 extend({ Mesh, MeshPhongMaterial, PlaneGeometry });
@@ -23,6 +24,17 @@ export default function Home() {
   const [isClicked, setIsClicked] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [selectedGallery, setSelectedGallery] = useState<Gallery>(galleries[1]);
+
+  const [goToNextScene, setGoToNextScene] = useState(false);
+
+    const handleBoxClick = () => {
+        const newSelectedGallery = galleries[1]; // Mettez ici l'index ou l'ID de votre deuxième tableau d'objets
+        setSelectedGallery(newSelectedGallery);
+
+    };
+
+
+
 
    const helpersMobile = (
       <>
@@ -40,10 +52,13 @@ export default function Home() {
       </>
   )
 
+
+
   const handleGalleryChange = (selectedGalleryId: any) => {
     const newSelectedGallery = galleries.find(gallery => gallery.id === selectedGalleryId);
     if (newSelectedGallery) {
       setSelectedGallery(newSelectedGallery);
+      setIsClicked(true)
     } else {
       console.error(`No gallery found with id: ${selectedGalleryId}`);
     }
@@ -57,13 +72,15 @@ export default function Home() {
     setIsClicked(true);
   };
 
+
   useEffect(() => {
     const isMobile = checkIfMobile();
     setIsMobile(isMobile);
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsClicked(false);
+
+          setIsClicked(false);
       }
     };
 
@@ -95,11 +112,12 @@ export default function Home() {
             />
           </div>
         </section>
-        {isMobile ? (
-            <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked } helpers={helpersMobile}/>
-        ) : (
-            <SceneTopDesktop helpers={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} />
-        )}
+          {isMobile ? (
+              <SceneBottomMobile selectedGallery={selectedGallery} isClicked={isClicked} helpers={helpersMobile}/>
+          ) : (
+              <SceneDesktopHybrid helpers={helpersDesktop} isClicked={isClicked} selectedGallery={selectedGallery} handleBoxClick={handleBoxClick} />
+
+          )}
       </main>
   );
 }
