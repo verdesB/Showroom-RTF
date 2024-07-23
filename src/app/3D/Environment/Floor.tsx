@@ -11,14 +11,22 @@ function Floor() {
     //@ts-ignore
     const texture = useLoader(TextureLoader, './textures/floorTexture3.jpg'); // Remplacez par le chemin de votre texture
 
-    const material = new THREE.MeshPhongMaterial({
+    const material = new THREE.MeshPhysicalMaterial({
         map: texture,
         side: THREE.DoubleSide,
         color: 0xffffff,
         transparent: true,
         shininess: 30,
         specular: 0x222222,
-        reflectivity: 0.8,
+
+        clearCoat:5 ,// Ajoute un effet de finition brillante
+        clearCoatRoughness: 0, // Rend la finition complètement lisse
+        reflectivity: 1 ,// Haut niveau de réflexion
+        // Faible rugosité pour un effet de surface lisse
+        metalness: 0,// Aucun effet métallique
+
+
+
     });
 
     const floorWidth = 38;
@@ -27,7 +35,7 @@ function Floor() {
     return (
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow={true} >
             <planeGeometry attach="geometry" args={[floorWidth, floorDepth]} />
-            <meshPhongMaterial attach="material" {...material} />
+            <meshStandardMaterial attach="material" {...material} />
         </mesh>
     );
 }

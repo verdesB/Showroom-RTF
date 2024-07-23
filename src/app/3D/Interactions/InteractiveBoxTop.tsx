@@ -3,18 +3,18 @@ import { useBox } from "@react-three/cannon";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-interface InteractiveBoxProps {
+interface InteractiveBoxTopProps {
     handleBoxClick: () => void;
 }
 
-export const InteractiveBox: React.FC<InteractiveBoxProps> = ({ handleBoxClick }) => {
+export const InteractiveBoxTop: React.FC<InteractiveBoxTopProps> = ({ handleBoxClick }) => {
     const [ref] = useBox(() => ({ mass: 1, position: [16, 1, -43] }));
-    const meshRef = useRef<THREE.Mesh>(null);
+    const meshRef2 = useRef<THREE.Mesh>(null);
 
     useFrame(() => {
-        if (meshRef.current) {
-            meshRef.current.rotation.x += 0.001;
-            meshRef.current.rotation.y += 0.001;
+        if (meshRef2.current) {
+            meshRef2.current.rotation.x += 0.001;
+            meshRef2.current.rotation.y += 0.001;
         }
     });
 
@@ -25,9 +25,9 @@ export const InteractiveBox: React.FC<InteractiveBoxProps> = ({ handleBoxClick }
 
     return (
         <mesh
-            ref={meshRef}
+            ref={meshRef2}
             onClick={handleClick}
-            position={[15, 1, -49]}
+            position={[15, 17, -49]}
             castShadow
             receiveShadow
         >

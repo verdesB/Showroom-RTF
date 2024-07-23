@@ -11,7 +11,7 @@ interface ControlProps {
 export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) => {
     const { camera, gl } = useThree();
 
-    const controlsRef = useRef<PointerLockControls >(null);
+    const controlsRef = useRef<PointerLockControls>(null);
 
     const prevTimeRef = useRef(performance.now());
     const lastValidPosition = useRef(new Vector3());
@@ -26,16 +26,26 @@ export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) =>
     const floorDepth = 100.5;
     const floorMargin = -2;
 
+    const floorWidthTop = 21;
+    const floorDepthTop = 100.5;
+    const floorMarginTop = 100.5;
+
     const boundaryBox = new Box3(
         new Vector3(-floorWidth / 2 - floorMargin, 0, -floorDepth / 2 - floorMargin),
         new Vector3(floorWidth / 2 + floorMargin, 20, floorDepth / 2 + floorMargin)
+    );
+    const boundaryBox2 = new Box3(
+        new Vector3(-floorWidthTop / 2 - floorMarginTop, 0, -floorDepthTop / 2 - floorMarginTop),
+        new Vector3(floorWidthTop / 2 + floorMarginTop, 20, floorDepthTop / 2 + floorMarginTop)
     );
 
     function isInsideBoundary(position) {
         return boundaryBox.containsPoint(position);
     }
 
+
     useEffect(() => {
+        gl.setClearColor('#ffffff');
         if (lastValidPosition.current.equals(new Vector3())) {
             lastValidPosition.current.copy(camera.position);
         } else {
@@ -43,7 +53,7 @@ export const CameraAndControls = ({isClicked , controlsLocked}: ControlProps) =>
         }
 
         camera.updateProjectionMatrix();
-        gl.setClearColor('#ffffff');
+
         lastValidPosition.current.copy(camera.position); // Initial position as the last valid position
         document.addEventListener('keydown', onKeyDown);
         document.addEventListener('keyup', onKeyUp);

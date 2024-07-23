@@ -23,7 +23,7 @@ export interface Gallery {
 export const galleries: Gallery[] = [
     {
         id: 1,
-        name: 'Gallery 1',
+        name: 'GALERIE 1',
         img: '/paintings/dog2.jpg',
         paintings: [
             {
@@ -184,7 +184,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 2,
-        name: 'Gallery 2',
+        name: 'GALERIE 2',
         img: '/paintings/got.jpg',
         paintings: [
             {
@@ -345,7 +345,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 3,
-        name: 'Gallery 3',
+        name: 'GALERIE 3',
         img: '/paintings/knight.jpg',
         paintings: [
             {
@@ -506,7 +506,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 4,
-        name: 'Gallery 4',
+        name: 'GALERIE 4',
         img: '/paintings/LOR2.jpg',
         paintings: [
             {
@@ -667,7 +667,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 5,
-        name: 'Gallery 5',
+        name: 'GALERIE 5',
         img: '/paintings/wolf.jpg',
         paintings: [
             {
@@ -828,7 +828,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 6,
-        name: 'Gallery 6',
+        name: 'GALERIE 6',
         img: '/paintings/marin.jpg',
         paintings: [
             {
@@ -989,7 +989,7 @@ export const galleries: Gallery[] = [
     },
     {
         id: 7,
-        name: 'Gallery 7',
+        name: 'GALERIE 7',
         img: '/paintings/malinois.jpg',
         paintings: [
             {
