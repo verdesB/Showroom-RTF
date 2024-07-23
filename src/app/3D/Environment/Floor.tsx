@@ -17,7 +17,7 @@ function Floor() {
         color: 0xffffff,
         transparent: true,
 
-        specular: 0x222222,
+
 
         clearCoat:5 ,// Ajoute un effet de finition brillante
         clearCoatRoughness: 0, // Rend la finition complètement lisse
