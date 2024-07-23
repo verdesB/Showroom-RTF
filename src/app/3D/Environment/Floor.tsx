@@ -16,7 +16,7 @@ function Floor() {
         side: THREE.DoubleSide,
         color: 0xffffff,
         transparent: true,
-        shininess: 30,
+
         specular: 0x222222,
 
         clearCoat:5 ,// Ajoute un effet de finition brillante
