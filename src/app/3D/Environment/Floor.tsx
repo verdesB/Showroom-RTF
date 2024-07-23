@@ -19,11 +19,7 @@ function Floor() {
 
 
 
-        clearCoat:5 ,// Ajoute un effet de finition brillante
-        clearCoatRoughness: 0, // Rend la finition complètement lisse
-        reflectivity: 1 ,// Haut niveau de réflexion
-        // Faible rugosité pour un effet de surface lisse
-        metalness: 0,// Aucun effet métallique
+
 
 
 
