@@ -1,7 +1,9 @@
 import { useThree } from "@react-three/fiber";
 import { useEffect } from "react";
-
-const CameraUpdater = ({ isSecondFloor }: boolean) => {
+interface CameraUpdaterProps {
+    isSecondFloor: boolean,
+}
+const CameraUpdater = ({ isSecondFloor } : CameraUpdaterProps) => {
     const { camera } = useThree();
 
     useEffect(() => {
