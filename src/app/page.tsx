@@ -23,7 +23,7 @@ extend({ Mesh, MeshPhongMaterial, PlaneGeometry });
 export default function Home() {
   const [isClicked, setIsClicked] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [selectedGallery, setSelectedGallery] = useState<Gallery>(galleries[1]);
+  const [selectedGallery, setSelectedGallery] = useState<Gallery>(galleries[0]);
 
   const [goToNextScene, setGoToNextScene] = useState(false);
 

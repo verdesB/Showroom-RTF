@@ -16,13 +16,6 @@ function Floor() {
         side: THREE.DoubleSide,
         color: 0xffffff,
         transparent: true,
-
-
-
-
-
-
-
     });
 
     const floorWidth = 38;
